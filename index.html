@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Marry Me?</title>
+  <style>
+    /* Add some basic styling to make it look good */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      transition: background-color 2s ease-in-out; /* Add transition effect to body */
+      background-image: linear-gradient(to bottom, #ff69b4, #ffe6f2); /* Add a gradient background */
+    }
+   .container {
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px; /* Add rounded corners */
+    }
+   .heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ff69b4; /* Match the gradient color */
+    }
+   .button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+    }
+   .button:hover {
+      background-color: #3e8e41;
+    }
+   .no-button {
+      position: relative;
+      transition: transform 0.5s ease-in-out;
+    }
+   .heart {
+      font-size: 24px;
+      color: #ff69b4;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Do you want to marry me?</h1>
+    <span class="heart">&hearts;</span>
+    <button class="button yes-button" onclick="showYes()">Yes</button>
+    <button class="button no-button" id="no-button" onclick="showNo()">No</button>
+    <h1 id="result" style="display: none;"></h1>
+  </div>
+
+  <script>
+    function showYes() {
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").innerHTML = "Ya, I know it!";
+      document.body.style.backgroundImage = "linear-gradient(to bottom, #33cc33, #ccffcc)"; /* Change background to green */
+    }
+    function showNo() {
+      var noButton = document.getElementById("no-button");
+      var randomX = Math.random() * 200 - 100;
+      var randomY = Math.random() * 200 - 100;
+      noButton.style.transform = "translate(" + randomX + "px, " + randomY + "px)";
+      
+      setTimeout(function() {
+        noButton.style.transform = "translate(0, 0)";
+      }, 500);
+    }
+    
+    // Function to change background color
+    function changeBackground(color) {
+      document.body.style.backgroundImage = "linear-gradient(to bottom, " + color + ", " + color + ")";
+    }
+  </script>
+</body>
+</html>
